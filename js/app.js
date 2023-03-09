@@ -64,20 +64,16 @@ window.addEventListener('load', () => {
 		} else {
 		  taskEditEl.innerText = "Edit";
 		  taskInputEl.setAttribute("readonly", "readonly");
-		  // save task to local storage when editing is finished
 		  localStorage.setItem(taskInputEl.dataset.key, taskInputEl.value);
 		}
 	  });
-  
 	  taskDeleteEl.addEventListener('click', (e) => {
 		list_el.removeChild(taskEl);
-		// remove task from local storage
 		localStorage.removeItem(taskInputEl.dataset.key);
 	  });
   
 	  return taskEl;
 	}
-  
 	form.addEventListener('submit', (e) => {
 	  e.preventDefault();
   
@@ -91,7 +87,6 @@ window.addEventListener('load', () => {
 	  saveTask(taskEl);
 	});
   
-	// load saved tasks on page load
 	loadTasks();
   });
   
